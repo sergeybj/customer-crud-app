@@ -1,0 +1,44 @@
+<definitions targetNamespace="http://ws.javabrains.sergey.org/"
+	name="CustomerWebServiceService">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://ws.javabrains.sergey.org/"
+				schemaLocation="http://localhost:8080/customer-crud/CustomerWebService?xsd=1" />
+		</xsd:schema>
+	</types>
+	<message name="getCustomerById">
+		<part name="parameters" element="tns:getCustomerById" />
+	</message>
+	<message name="getCustomerByIdResponse">
+		<part name="parameters" element="tns:getCustomerByIdResponse" />
+	</message>
+	<portType name="CustomerWebService">
+		<operation name="getCustomerById">
+			<input
+				wsam:Action="http://ws.javabrains.sergey.org/CustomerWebService/getCustomerByIdRequest"
+				message="tns:getCustomerById" />
+			<output
+				wsam:Action="http://ws.javabrains.sergey.org/CustomerWebService/getCustomerByIdResponse"
+				message="tns:getCustomerByIdResponse" />
+		</operation>
+	</portType>
+	<binding name="CustomerWebServicePortBinding" type="tns:CustomerWebService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="getCustomerById">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="CustomerWebServiceService">
+		<port name="CustomerWebServicePort" binding="tns:CustomerWebServicePortBinding">
+			<soap:address
+				location="http://localhost:8080/customer-crud/CustomerWebService" />
+		</port>
+	</service>
+</definitions>

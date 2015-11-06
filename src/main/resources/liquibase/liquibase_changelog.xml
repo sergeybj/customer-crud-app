@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<preConditions>
+		<runningAs username="postgres" />
+	</preConditions>
+
+	<changeSet id="201511051207" author="Sergey" runAlways="true">
+		<sql>
+			drop table if exists customer cascade;
+
+		</sql>
+	</changeSet>
+	<changeSet id="201511051221" author="Sergey" runAlways="true">
+		<sql>
+			drop sequence if exists customer_id_seq;
+		</sql>
+	</changeSet>
+
+	<changeSet id="201511051231" author="Sergey" runAlways="true">
+		<createSequence sequenceName="customer_id_seq"
+			startValue="10001" incrementBy="1" cycle="true" maxValue="1000000000" />
+	</changeSet>
+
+	<changeSet id="201511051236" author="Sergey" runAlways="true">
+		<createTable tableName="customer">
+			<column name="CUSTOMER_ID" type="integer">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="FIRST_NAME" type="varchar(100)" />
+			<column name="LAST_NAME" type="varchar(100)" />
+			<column name="BIRTH_DATE" type="date" />
+			<column name="USERNAME" type="varchar(100)" />
+			<column name="PASSWORD" type="varchar(100)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet id="201511051316" author="Sergey" runAlways="true">
+		<insert tableName="customer">
+			<column name="CUSTOMER_ID" valueSequenceNext="customer_id_seq" />
+			<column name="FIRST_NAME" value="Donette" />
+			<column name="LAST_NAME" value="Foller" />
+			<column name="BIRTH_DATE" value="1980,10,1" />
+			<column name="USERNAME" value="donfol" />
+			<column name="PASSWORD" value="donette123" />
+		</insert>
+		<insert tableName="customer">
+			<column name="CUSTOMER_ID" valueSequenceNext="customer_id_seq" />
+			<column name="FIRST_NAME" value="Simona" />
+			<column name="LAST_NAME" value="Morasca" />
+			<column name="BIRTH_DATE" value="1960,10,1" />
+			<column name="USERNAME" value="simmor" />
+			<column name="PASSWORD" value="simona123" />
+		</insert>
+		<insert tableName="customer">
+			<column name="CUSTOMER_ID" valueSequenceNext="customer_id_seq" />
+			<column name="FIRST_NAME" value="Mitsue" />
+			<column name="LAST_NAME" value="Tollner" />
+			<column name="BIRTH_DATE" value="1973,10,1" />
+			<column name="USERNAME" value="mittol" />
+			<column name="PASSWORD" value="mitsue123" />
+		</insert>
+		<insert tableName="customer">
+			<column name="CUSTOMER_ID" valueSequenceNext="customer_id_seq" />
+			<column name="FIRST_NAME" value="Leota" />
+			<column name="LAST_NAME" value="Dilliard" />
+			<column name="BIRTH_DATE" value="1994,10,1" />
+			<column name="USERNAME" value="leodil" />
+			<column name="PASSWORD" value="leota123" />
+		</insert>
+		<insert tableName="customer">
+			<column name="CUSTOMER_ID" valueSequenceNext="customer_id_seq" />
+			<column name="FIRST_NAME" value="Sage" />
+			<column name="LAST_NAME" value="Wieser" />
+			<column name="BIRTH_DATE" value="1990,10,1" />
+			<column name="USERNAME" value="sagwie" />
+			<column name="PASSWORD" value="sage123" />
+		</insert>
+
+
+
+	</changeSet>
+</databaseChangeLog>

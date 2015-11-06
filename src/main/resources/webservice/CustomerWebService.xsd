@@ -1,0 +1,24 @@
+<xs:schema version="1.0" targetNamespace="http://ws.javabrains.sergey.org/">
+	<xs:element name="getCustomerById" type="tns:getCustomerById" />
+	<xs:element name="getCustomerByIdResponse" type="tns:getCustomerByIdResponse" />
+	<xs:complexType name="getCustomerById">
+		<xs:sequence>
+			<xs:element name="customerId" type="xs:long" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getCustomerByIdResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:customer" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="customer">
+		<xs:sequence>
+			<xs:element name="birthDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="customerId" type="xs:long" minOccurs="0" />
+			<xs:element name="firstName" type="xs:string" minOccurs="0" />
+			<xs:element name="lastName" type="xs:string" minOccurs="0" />
+			<xs:element name="password" type="xs:string" minOccurs="0" />
+			<xs:element name="username" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
