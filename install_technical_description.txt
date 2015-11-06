@@ -1,6 +1,6 @@
-﻿1. Clone application from https://github.com/sergeybj/customer-crud-app. Destincatid folder on your local machine could be for example:
+﻿1. Clone application from https://github.com/sergeybj/customer-crud-app. Destination folder on your local machine could be for example:
    "c:/work/customer-crud-app"
-2. This application includes Tomcat plugin (in pom.xml) for reloading context (embedded Tomcat). Does not need to install Tomcat 7 or other versions.
+2. This application includes Tomcat plugin (in pom.xml) for reloading context (embedded Tomcat). It does not need to Tomcat 7 to be installed.
 3. Install PostgreSQL database and create user "postgres" and password "admin".
 4. Application has Liquibase script - means no SQL should be run manually for installation. 
 5. Open command line and navigate to "c:/work/customer-crud-app"
